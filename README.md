@@ -1,1 +1,1 @@
-# Huong dan Git co ban
+# Ngon Ngu Lap Trinh HK2 Nam 1
