@@ -9,20 +9,29 @@ void Draw()// ve ma tran
 	{
 		for (int j=0;j<3;j++)
 		{
-			cout<<matrix[i][j]<<"  ";
+			cout<<matrix[i][j]<<"    ";
 		}
 		cout<<endl;
+		cout<<endl;
 	}
-
-
-
 }
 
-void Input()
+void Input() //Dung de cho nguoi choi nhap vao vi tri choi
 {
+	
+	if (hinh=='x') 
+	{
+		cout<<"Den luot nguoi choi x"<<endl;
+
+	}
+	if (hinh=='o') 
+	{
+		cout<<"Den luot nguoi choi o"<<endl;
+	}	
 	cout<<"Nhap vi tri ban muon choi ";
 	int a;
 	cin>>a;
+	
 	if (a==1)
 	{
 		matrix[0][0]=hinh;
@@ -66,10 +75,14 @@ void Input()
 
 void doiLuot()
 {
-	if (hinh=='x') hinh='o';
-	else hinh='x';
-
-
+	if (hinh=='x') 
+	{		
+		hinh='o';
+	}
+	else 
+	{
+		hinh='x';
+	}
 }
 
 char check()
@@ -110,7 +123,39 @@ char check()
 	}
 
 
-
+	//nguoi choi o thang
+	if(matrix[0][0]=='o' && matrix[0][1]=='o' && matrix[0][2]=='o') 
+	{
+		return 'o';
+	}
+	else if(matrix[0][0]=='o' && matrix[1][0]=='o' && matrix[2][0]=='o') 
+	{
+		return 'o';
+	}
+	else if(matrix[0][0]=='o' && matrix[1][1]=='o' && matrix[2][2]=='o') 
+	{
+		return 'o';
+	}
+	else if(matrix[0][1]=='o' && matrix[1][1]=='o' && matrix[2][1]=='o') 
+	{
+		return 'o';
+	}	
+	else if(matrix[0][2]=='o' && matrix[1][2]=='o' && matrix[2][2]=='o') 
+	{
+		return 'o';
+	}
+	else if(matrix[0][2]=='o' && matrix[1][1]=='o' && matrix[2][0]=='o') 
+	{
+		return 'o';
+	}
+	else if(matrix[1][0]=='o' && matrix[1][1]=='o' && matrix[1][2]=='o') 
+	{
+		return '0';
+	}
+	else if(matrix[2][0]=='o' && matrix[2][1]=='o' && matrix[2][2]=='o') 
+	{
+		return 'o';
+	}
 
 
 
@@ -119,11 +164,12 @@ char check()
 int main()
 {
 	
-	cout<<"====CHAO MUONG BAN DEN VOI GAME X-O==="<<endl;
+	cout<<"====CHAO MUNG BAN DEN VOI GAME X-O==="<<endl;
 	cout<<"Nguoi choi thu nhat danh x, nguoi choi thu 2 danh o "<<endl;
+	cout<<"==================================================="<<endl;
 
 	
-	while(true)
+	for (int i=0;i<9;i++)
 	{
 		Draw();	
 		Input();
@@ -142,6 +188,7 @@ int main()
 
 		doiLuot();
 		
+		if (i==8) cout<<"2 Nguoi Hoa nhau"<<endl;
 	}
 	
 
